@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.skemu.rdf.rml</groupId>
+	<artifactId>carml-example</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<properties>
+		<rdf4j.version>3.0.4</rdf4j.version>
+		<carml.version>0.2.3</carml.version>
+		<lombok.version>1.18.10</lombok.version>
+		<commons-text.version>1.8</commons-text.version>
+		<slf4j-log4j12.version>1.7.30</slf4j-log4j12.version>
+		<downloadSources>true</downloadSources>
+		<downloadJavadocs>true</downloadJavadocs>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.rdf4j</groupId>
+			<artifactId>rdf4j-rio-nquads</artifactId>
+			<version>${rdf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.taxonic.carml</groupId>
+			<artifactId>carml-engine</artifactId>
+			<version>${carml.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.taxonic.carml</groupId>
+			<artifactId>carml-logical-source-resolver-jsonpath</artifactId>
+			<version>${carml.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.taxonic.carml</groupId>
+			<artifactId>carml-logical-source-resolver-xpath</artifactId>
+			<version>${carml.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j-log4j12.version}</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
